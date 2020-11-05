@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Configuration
 @EnableWebSecurity
 public class SeguridadConfig extends WebSecurityConfigurerAdapter{
@@ -21,8 +22,9 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	}
 	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+	@Autowired
+	protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
 	}
 
@@ -31,14 +33,13 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter{
 		
 		http
 		.authorizeRequests()
-			.antMatchers("/", "/webjars/**", "/css/**", "/h2-console/**", "/public/**", "/auth/**", "/files/**","/imagenes/**").permitAll()
+			.antMatchers("/webjars/**", "/css/**", "/h2-console/**", "/public/**", "/auth/**", "/files/**","/imagenes/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
 		.formLogin()
-			.loginPage("/auth/login")
+			.loginPage("/auth/login").permitAll()
 			.defaultSuccessUrl("/public/index", true)
 			.loginProcessingUrl("/auth/login-post")
-			.permitAll()
 			.and()
 		.logout()
 			.logoutUrl("/auth/logout") 
