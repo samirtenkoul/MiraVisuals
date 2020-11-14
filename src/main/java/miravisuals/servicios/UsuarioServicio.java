@@ -18,9 +18,7 @@ public class UsuarioServicio {
 	
 	
 	public Usuario registrar(Usuario u) {
-		//Codificamos la contraseña
 		u.setPassword(passwordEncoder.encode(u.getPassword()));
-		//Guardamos la contraseña
 		return repositorio.save(u);
 	}
 	

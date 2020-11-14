@@ -9,16 +9,16 @@ import miravisuals.modelo.Compra;
 import miravisuals.modelo.Producto;
 import miravisuals.modelo.Usuario;
 import miravisuals.repositorios.ProductoRepository;
+import miravisuals.subida.StorageSerivce;
 
 @Service
 public class ProductoServicio {
 	
 	@Autowired
 	ProductoRepository repositorio;
-	/*
+	
 	@Autowired
-	StorageService storageService;
-	*/
+	StorageSerivce storageService;
 	
 	public Producto insertar(Producto p) {
 		return repositorio.save(p);
@@ -27,12 +27,12 @@ public class ProductoServicio {
 	public void borrar(long id) {
 		repositorio.deleteById(id);
 	}
-	/*
+	
 	public void borrar(Producto p) {
 		if (!p.getImagen().isEmpty())
 			storageService.delete(p.getImagen());
 		repositorio.delete(p);
-	}*/
+	}
 	
 	public Producto editar(Producto p) {
 		return repositorio.save(p);
