@@ -12,14 +12,14 @@ import miravisuals.subida.StorageSerivce;
 
 @Controller
 public class FilesController {
-	
+
 	@Autowired
 	StorageSerivce storageService;
-	
+
 	@GetMapping("/files/{filename:.+}")
 	@ResponseBody
-	public ResponseEntity<Resource> serveFile(@PathVariable String filename){
-		
+	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
+
 		Resource file = storageService.loadAsResource(filename);
 		return ResponseEntity.ok().body(file);
 	}

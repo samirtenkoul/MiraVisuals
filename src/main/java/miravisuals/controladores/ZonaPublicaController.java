@@ -17,20 +17,21 @@ import miravisuals.servicios.ProductoServicio;
 @Controller
 @RequestMapping("/public")
 public class ZonaPublicaController {
-	
+
 	@Autowired
 	ProductoServicio productoServicio;
-	
+
 	@ModelAttribute("productos")
-	public List<Producto> productosNoVendidos(){
-		return productoServicio.productosSinVender();
+	public List<Producto> productosNoVendidos() {
+		return productoServicio.findAll();
 	}
 
-	@GetMapping({"/", "/index"})
-	public String index(Model model, @RequestParam(name="q", required=false) String query) {
+	@GetMapping({ "/", "/index" })
+	public String index(Model model, @RequestParam(name = "q", required = false) String query) {
 		if (query != null) {
 			model.addAttribute("productos", productoServicio.buscar(query));
 		}
+
 		return "index";
 	}
 

@@ -1,6 +1,5 @@
 package miravisuals.modelo;
 
-
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,20 +16,21 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 public class Compra {
-	
-	@Id @GeneratedValue
+
+	@Id
+	@GeneratedValue
 	private long id;
-	
+
 	@CreatedDate
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaCompra;
-	
+
 	@ManyToOne
 	private Usuario propietario;
-	
-	
-	public Compra() {}
-	
+
+	public Compra() {
+	}
+
 	public Compra(Usuario propietario) {
 		this.propietario = propietario;
 	}
@@ -97,8 +97,5 @@ public class Compra {
 	public String toString() {
 		return "Compra [id=" + id + ", fechaCompra=" + fechaCompra + ", propietario=" + propietario + "]";
 	}
-	
-	
-	
 
 }

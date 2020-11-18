@@ -14,17 +14,17 @@ import miravisuals.repositorios.UsuarioRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-	
+
 	@Autowired
 	UsuarioRepository repositorio;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
+
 		Usuario usuario = repositorio.findFirstByEmail(username);
-		
+
 		UserBuilder builder = null;
-		
+
 		if (usuario != null) {
 			builder = User.withUsername(username);
 			builder.disabled(false);
@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		} else {
 			throw new UsernameNotFoundException("Usuario no encontrado");
 		}
-		
+
 		return builder.build();
 	}
 

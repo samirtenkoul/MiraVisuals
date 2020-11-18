@@ -7,23 +7,25 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Producto {
-	
-	@Id @GeneratedValue
+
+	@Id
+	@GeneratedValue
 	private long id;
-	
-	private String nombre; 
-	
+
+	private String nombre;
+
 	private float precio;
-	
-	private String imagen; 
-	
+
+	private String imagen;
+
 	@ManyToOne
 	private Usuario propietario;
-	
+
 	@ManyToOne
 	private Compra compra;
-	
-	public Producto() { }
+
+	public Producto() {
+	}
 
 	public Producto(String nombre, float precio, String imagen, Usuario propietario) {
 		this.nombre = nombre;
@@ -134,8 +136,5 @@ public class Producto {
 		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", imagen=" + imagen
 				+ ", propietario=" + propietario + ", compra=" + compra + "]";
 	}
-
-	
-	
 
 }

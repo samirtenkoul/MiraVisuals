@@ -8,7 +8,7 @@ import miravisuals.modelo.Compra;
 import miravisuals.modelo.Usuario;
 
 public interface CompraRepository extends JpaRepository<Compra, Long> {
-	
-	//Busqueda compras de un propietario
+
+	// Busqueda compras de un propietario
 	List<Compra> findByPropietario(Usuario Propietario);
 }

@@ -13,7 +13,7 @@ public class MiraVisualsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MiraVisualsApplication.class, args);
 	}
-	
+
 	@Bean
 	CommandLineRunner init(StorageSerivce ss) {
 		return (args -> {
@@ -21,7 +21,7 @@ public class MiraVisualsApplication {
 			ss.init();
 		});
 	}
-	
+
 //	@Bean
 //    public CommandLineRunner initData(UsuarioServicio usuarioServicio, ProductoServicio productoServicio) {
 //        return args -> {
@@ -32,8 +32,7 @@ public class MiraVisualsApplication {
 //    	    usuarioServicio.registrar(usuario2);
 //        };
 //	}
-	
-	
+
 //	@Bean
 //    public CommandLineRunner initData(UsuarioServicio usuarioServicio, ProductoServicio productoServicio) {
 //        return args -> {
@@ -50,6 +49,5 @@ public class MiraVisualsApplication {
 //        
 //        };
 //	}
-	
-}	
 
+}
