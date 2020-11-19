@@ -1,8 +1,13 @@
 package miravisuals.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -21,8 +26,9 @@ public class Producto {
 	@ManyToOne
 	private Usuario propietario;
 
-	@ManyToOne
-	private Compra compra;
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private List<Compra> compra = new ArrayList<>();
+
 
 	public Producto() {
 	}
@@ -32,6 +38,14 @@ public class Producto {
 		this.precio = precio;
 		this.imagen = imagen;
 		this.propietario = propietario;
+	}
+
+	public Producto(String nombre, float precio, String imagen, Usuario propietario, List<Compra> compra) {
+		this.nombre = nombre;
+		this.precio = precio;
+		this.imagen = imagen;
+		this.propietario = propietario;
+		this.compra = compra;
 	}
 
 	public long getId() {
@@ -74,11 +88,11 @@ public class Producto {
 		this.propietario = propietario;
 	}
 
-	public Compra getCompra() {
+	public List<Compra> getCompras() {
 		return compra;
 	}
 
-	public void setCompra(Compra compra) {
+	public void setCompras(List<Compra> compra) {
 		this.compra = compra;
 	}
 
@@ -136,5 +150,7 @@ public class Producto {
 		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", imagen=" + imagen
 				+ ", propietario=" + propietario + ", compra=" + compra + "]";
 	}
+	
+	 
 
 }

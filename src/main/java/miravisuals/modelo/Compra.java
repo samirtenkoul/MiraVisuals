@@ -27,7 +27,6 @@ public class Compra {
 
 	@ManyToOne
 	private Usuario propietario;
-
 	public Compra() {
 	}
 
@@ -97,5 +96,7 @@ public class Compra {
 	public String toString() {
 		return "Compra [id=" + id + ", fechaCompra=" + fechaCompra + ", propietario=" + propietario + "]";
 	}
+	
+	
 
 }

@@ -78,7 +78,7 @@
 				<div class="panel panel-default panel-producto">
 					<div class="panel-heading">
 						<span th:text="${producto.nombre}">NOMBRE DEL PRODUCTO</span> <a
-							th:if="${producto.compra == null}" data-toggle="modal"
+							data-toggle="modal"
 							data-target="#delete-modal" th:data-id="${producto.id}"
 							class="close" aria-label="close">&times;</a>
 					</div>
@@ -94,7 +94,7 @@
 								<span class="precio"
 									th:text="${#numbers.formatCurrency(producto.precio)}"></span>
 							</div>
-							<div class="col-md-3">
+							<!--<div class="col-md-3">
 
 								<h4>
 									<span th:if="${producto.compra != null} "
@@ -103,7 +103,7 @@
 										class="label label-info">Sin vender</span>
 								</h4>
 
-							</div>
+							</div>-->
 						</div>
 					</div>
 				</div>

@@ -53,13 +53,13 @@ public class ProductoServicio {
 	public List<Producto> productosDeUnaCompra(Compra c) {
 		return repositorio.findByCompra(c);
 	}
-
-	public List<Producto> productosSinVender() {
-		return repositorio.findByCompraIsNull();
-	}
+//
+//	public List<Producto> productosSinVender() {
+//		return repositorio.findByCompraIsNull();
+//	}
 
 	public List<Producto> buscar(String query) {
-		return repositorio.findByNombreContainsIgnoreCaseAndCompraIsNull(query);
+		return repositorio.findByNombreContainsIgnoreCase(query);
 	}
 
 	public List<Producto> buscarMisProductos(String query, Usuario u) {

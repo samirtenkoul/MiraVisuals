@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import miravisuals.modelo.Compra;
-import miravisuals.modelo.Producto;
 import miravisuals.modelo.Usuario;
 import miravisuals.repositorios.CompraRepository;
 
@@ -26,11 +25,6 @@ public class CompraServicio {
 
 	public Compra insertar(Compra c) {
 		return repositorio.save(c);
-	}
-
-	public Producto addProductoCompra(Producto p, Compra c) {
-		p.setCompra(c);
-		return productoServicio.editar(p);
 	}
 
 	public Compra buscarPorId(long id) {

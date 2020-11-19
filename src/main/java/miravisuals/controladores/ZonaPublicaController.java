@@ -31,7 +31,6 @@ public class ZonaPublicaController {
 		if (query != null) {
 			model.addAttribute("productos", productoServicio.buscar(query));
 		}
-
 		return "index";
 	}
 

@@ -103,7 +103,7 @@ public class CompraController {
 		}
 		List<Producto> productos = productosCarrito();
 		Compra c = compraServicio.insertar(new Compra(), usuario);
-		productos.forEach(p -> compraServicio.addProductoCompra(p, c));
+		//productos.forEach(p -> compraServicio.addProductoCompra(p, c));
 		session.removeAttribute("carrito");
 		return "redirect:/app/compra/factura/" + c.getId();
 	}

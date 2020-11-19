@@ -51,7 +51,7 @@ public class ProductosController {
 	@GetMapping("/misproductos/{id}/eliminar")
 	public String eliminar(@PathVariable Long id) {
 		Producto p = productos.findById(id);
-		if (p.getCompra() == null) {
+		if (p.getCompras().isEmpty()) {
 			productos.borrar(p.getId());
 		}
 		return "redirect:/app/misproductos";
