@@ -56,3 +56,9 @@ footer {
 .invoice-body .table > tbody > tr > .thick-line {
     border-top: 2px solid;
 }
+.map {
+    min-width: 300px;
+    min-height: 300px;
+    width: 100%;
+    height: 100%;
+}

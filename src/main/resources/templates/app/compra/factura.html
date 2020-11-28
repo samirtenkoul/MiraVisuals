@@ -20,7 +20,7 @@
 		</div>
 	</div>
 
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse sticky-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -33,6 +33,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li><a th:href="@{/}">Inicio</a></li>
+					<li class=""><a th:href="@{/public/contacto}">Contacto</a></li>
 					<li sec:authorize="isAuthenticated()"><a
 						th:href="@{/app/misproductos}">Mis Productos</a></li>
 					<li sec:authorize="isAuthenticated()"><a
