@@ -47,7 +47,7 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 				.antMatchers("/webjars/**", "/css/**", "/h2-console/**", "/public/**", "/auth/**", "/files/**",
-						"/imagenes/**")
+						"/imagenes/**", "/")
 				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/auth/login").permitAll()
 				.defaultSuccessUrl("/public/index", true).loginProcessingUrl("/auth/login-post").and().rememberMe()
 				.tokenRepository(ptr()).userDetailsService(userDetailsService).and().logout().logoutUrl("/auth/logout")

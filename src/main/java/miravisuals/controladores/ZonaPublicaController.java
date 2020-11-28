@@ -22,7 +22,7 @@ public class ZonaPublicaController {
 	ProductoServicio productoServicio;
 
 	@ModelAttribute("productos")
-	public List<Producto> productosNoVendidos() {
+	public List<Producto> productos() {
 		return productoServicio.findAll();
 	}
 
@@ -43,5 +43,10 @@ public class ZonaPublicaController {
 			return "producto";
 		}
 		return "redirect:/public";
+	}
+
+	@GetMapping("/contacto")
+	public String showContacto(Model model) {
+		return "Contacto";
 	}
 }
