@@ -67,9 +67,11 @@
 		</div>
 	</nav>
 	<form th:action="@{/auth/logout}" method="POST" id="logoutForm"></form>
+	
 
 
 	<div class="container">
+	<div class="alert alert-success text-center" th:if="${param.sesionCerrada}" role="alert"> ¡Sesión cerrada con exito!</div>
 		<div class="row">
 			<div class="col-lg-4" th:each="producto : ${productos}">
 

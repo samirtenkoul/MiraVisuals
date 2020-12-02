@@ -42,6 +42,6 @@ public class LoginController {
 		}
 		usuarioServicio.registrar(usuario);
 
-		return "redirect:/auth/login";
+		return "redirect:/auth/login?registrado";
 	}
 }
