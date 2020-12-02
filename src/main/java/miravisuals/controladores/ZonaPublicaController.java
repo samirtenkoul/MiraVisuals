@@ -48,4 +48,9 @@ public class ZonaPublicaController {
 	public String showContacto(Model model) {
 		return "Contacto";
 	}
+	
+	@GetMapping("/avisolegal")
+	public String showAvisoLegal(Model model) {
+		return "AvisoLegal";
+	}
 }

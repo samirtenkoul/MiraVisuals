@@ -101,6 +101,7 @@ public class CompraController {
 		if (contenido == null) {
 			return "redirect:/public";
 		}
+		@SuppressWarnings("unused")
 		List<Producto> productos = productosCarrito();
 		Compra c = compraServicio.insertar(new Compra(), usuario);
 		//productos.forEach(p -> compraServicio.addProductoCompra(p, c));
